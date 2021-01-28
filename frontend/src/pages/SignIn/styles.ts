@@ -22,7 +22,7 @@ export const Logo = styled.div`
   }
 `;
 
-export const Form = styled.form`
+export const Content = styled.div`
   width: 300px;
   height: 300px;
   padding: 30px;
@@ -45,4 +45,6 @@ export const FormTitle = styled.h2`
 export const Link = styled.a`
   text-decoration: none;
   float: right;
+  font-size: 14px;
+  margin-top: 10px;
 `;
