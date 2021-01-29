@@ -22,7 +22,7 @@ export const Logo = styled.div`
   }
 `;
 
-export const Content = styled.div`
+export const Form = styled.form`
   width: 300px;
   height: 300px;
   padding: 30px;
