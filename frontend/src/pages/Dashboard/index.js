@@ -18,24 +18,36 @@ import Button from '../../components/Button';
 
 import api from '../../services/api';
 
-import { Container, Header, Body, Table, Images } from './styles';
+import { Container, Header, Body, Table, Images, Image } from './styles';
 
 const Dashboard = () => {
   const [data, setData] = useState([]);
-  const [url, setUrl] = useState('');
+  const [url, setUrl] = useState({
+    title: '',
+    url: '',
+  });
   const [urls, setUrls] = useState([]);
 
   useEffect(() => {
-    setUrls([...urls, url]);
+    if (url.url !== '') {
+      setUrls([...urls, url]);
+      setUrl({
+        title: '',
+        url: '',
+      });
+    }
   }, [url]);
-  
+
   async function handleNewImage(newData) {
-    const { id } = newData;
-    
+    const { id, title } = newData;
+
     const image = await api.get(`photos/${id}`);
     
     const { url } = image.data;
-    setUrl(url);
+    setUrl({
+      title,
+      url,
+    });
   }
 
   return (
@@ -110,7 +122,12 @@ const Dashboard = () => {
           />
         </Table>
         <Images>
-
+        {urls.map((url) => (
+          <Image>
+            <img src={url.url} alt='imagem' />
+            <span>{url.title}</span>
+          </Image>
+        ))}
         </Images>
       </Body>
     </Container>
