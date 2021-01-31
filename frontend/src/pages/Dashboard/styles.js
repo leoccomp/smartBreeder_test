@@ -1,8 +1,19 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 70px auto;
+
+  grid-template-areas:
+  'MH MH'
+  'TA IM';
+
+  height: 100vh;
+`;
 
 export const Header = styled.div`
+  grid-area: MH;
   background: #fff;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
   height: 50px;
@@ -15,26 +26,21 @@ export const Header = styled.div`
   }
 `;
 
-export const Body = styled.body`
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-`;
-
 export const Table = styled.div`
-  width: 48%;
-  margin-top: 20px;
+  grid-area: TA;
+  width: 48vw;
+  margin-left: 10px;
 `;
 
 export const Images = styled.div`
+  grid-area: IM;
+  width: 48vw;
   display: flex;
   flex-direction: column;
-  width: 48%;
-  min-height: 100%;
+  align-items: flex-start;
   padding: 20px;
-  margin-top: 20px;
   background: #fff;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   overflow-y: scroll;
 `;
 

@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext } from 'react';
+import { toast } from 'react-toastify';
 import history from '../services/history';
 
 interface IAuthContext {
@@ -20,10 +21,10 @@ const AuthProvider: React.FC = ({ children }) => {
     if (email === 'leo@leo.com' && password === '123456') {
       localStorage.setItem('@my-cashFlow:logged', 'true');
       setLogged(true);
-      alert('Logado com sucesso!!');
+      toast.success('Logado com sucesso!!');
       history.push('/dashboard');
     } else {
-      alert('Usuário ou senha inválidos!!');
+      toast.error('Usuário ou senha inválidos!!');
     }
   };
 
