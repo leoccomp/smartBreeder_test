@@ -10,6 +10,16 @@ export const Container = styled.div`
   'TA IM';
 
   height: 100vh;
+
+  @media(max-width: 600px) {
+    grid-template-columns: 100%;
+    grid-template-rows: 70px auto;
+
+    grid-template-areas:
+    'MH'
+    'TA'
+    'IM';
+  }
 `;
 
 export const Header = styled.div`
@@ -30,6 +40,11 @@ export const Table = styled.div`
   grid-area: TA;
   width: 48vw;
   margin-left: 10px;
+
+  @media(max-width: 600px) {
+    width: 95%;
+    margin-right: 10px;
+  }
 `;
 
 export const Images = styled.div`
@@ -42,6 +57,11 @@ export const Images = styled.div`
   background: #fff;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   overflow-y: scroll;
+
+  @media(max-width: 600px) {
+    width: 95%;
+    margin-right: 10px;
+  }
 `;
 
 export const Image = styled.div`

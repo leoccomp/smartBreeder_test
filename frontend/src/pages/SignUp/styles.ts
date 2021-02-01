@@ -13,26 +13,22 @@ export const Container = styled.div`
 
 export const Logo = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-bottom: 10px;
-  
-  > h2 {
-    color: #3a3a3a;
-    margin-left: 7px;
-  }
 `;
 
-export const Form = styled.form`
+export const Content = styled.div`
   width: 300px;
-  height: 300px;
+  height: 250px;
   padding: 30px;
   border-radius: 10px;
   background-color: #dcdcdc;
 `;
 
-export const FormTitle = styled.h2`
-  color: #3a3a3a;
+export const FormTitle = styled.h1`
   margin-bottom: 20px;
+  margin-top: 10px;
   
   &:after {
     content: '';

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import MaterialTable from "material-table";
@@ -21,6 +22,7 @@ import Button from '../../components/Button';
 import api from '../../services/api';
 
 import { Container, Header, Table, Images, Image } from './styles';
+import { useAuth } from "../../hooks/auth";
 
 const Dashboard = () => {
   const [data, setData] = useState([]);
@@ -30,6 +32,8 @@ const Dashboard = () => {
     url: '',
   });
   const [urls, setUrls] = useState([]);
+  const history = useHistory();
+  const { signOut } = useAuth();
 
   useEffect(() => {
     if (url.url !== '') {
@@ -80,10 +84,16 @@ const Dashboard = () => {
     toast.success('Título da imagem alterado com sucesso!');
   }
 
+  function handleSignOut() {
+    signOut();
+    toast.success('Logout efetuado com sucesso!');
+    history.push('/');
+  }
+
   return (
     <Container>
       <Header>
-        <Button type="">Sair</Button>
+        <Button type="button" onClick={handleSignOut}>Sair</Button>
       </Header>
       <Table>
         <MaterialTable
